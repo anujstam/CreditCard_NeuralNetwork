@@ -1,8 +1,7 @@
-'''
+"""
 Basic program to play around with Keras and TF using a csv format dataset found on kaggle.
-
 Made by Anuj Tambwekar
-'''
+"""
 
 # Importing modules
 import pandas as pd
@@ -22,10 +21,7 @@ xtrain, xtest, ytrain, ytest = train_test_split(x, y, test_size=0.3)
 
 # Creating the model
 model = Sequential()
-model.add(Dense(1000, input_shape=(29,)))
-model.add(Activation('relu'))
-model.add(Dropout(0.2))
-model.add(Dense(100))
+model.add(Dense(100, input_shape=(29,)))
 model.add(Activation('relu'))
 model.add(Dropout(0.2))
 model.add(Dense(10))
@@ -46,3 +42,18 @@ score = model.evaluate(xtest, ytest, batch_size=batch_size, verbose=1)
 
 # Test result
 print('Test accuracy:', score[1]*100, "%")
+
+
+# Currently highest accuracy: 99.931
+'''
+Previous Best: 99.930 with....
+model.add(Dense(1000, input_shape=(29,)))
+model.add(Activation('relu'))
+model.add(Dropout(0.2))
+model.add(Dense(10))
+model.add(Activation('relu'))
+model.add(Dropout(0.2))
+model.add(Dense(1))
+model.add(Activation('sigmoid'))
+& binary_crossentropy
+'''
