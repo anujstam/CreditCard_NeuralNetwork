@@ -31,11 +31,11 @@ model.add(Dropout(0.2))
 model.add(Dense(10))
 model.add(Activation('relu'))
 model.add(Dropout(0.2))
-model.add(Dense(2))
-model.add(Activation('softmax'))
+model.add(Dense(1))
+model.add(Activation('sigmoid'))
 
 # need sparse otherwise shape is wrong. check why
-model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 print('Fitting the data to the model')
 batch_size = 20
